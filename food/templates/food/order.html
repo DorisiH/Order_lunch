@@ -1,0 +1,62 @@
+{% extends 'food/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="container mb-4">
+    <div class="col-md-12 ">
+        <div class="col-md-12 col-sm-12 p-4">
+            <form method="POST">
+                {% csrf_token %}
+    
+
+                <!-- <div class="pt-5">
+                    {% for dessert in dessert %}
+                    <div class="row mt-4">
+                        
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                    <label class="form-check-label">{{ dessert.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">${{ dessert.price }}</p>
+                            </div>
+                            <p>{{ dessert.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div> -->
+                <div class="pt-5">
+                    {% for menu in menu %}
+                    <div class="row mt-4">
+                        
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                    <label class="form-check-label">{{ menu.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">${{ menu.food.price }}</p>
+                                <p class="font-weight-bold pl-5"> ID{{ menu.food.id }}</p>
+                            </div>
+                            <p>{{ menu.food.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                
+                <button class="btn btn-dark mt-5">Place Order!</button>
+            </form>
+        </div>
+        <div class="col-md-12"> Your order is:
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+    <a class="nav-link" href="{% url 'login' %}">please login <span class="sr-only"></span></a>
+{% endif %}
+{% endblock content %}
