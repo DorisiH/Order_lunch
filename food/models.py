@@ -22,6 +22,7 @@ class Category(models.Model):
 
 class OrderModel(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
+    fatura = models.ImageField(null=True, blank=True, upload_to="images/")
     date = models.DateField(auto_now_add=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     items = models.ManyToManyField('FoodMenu', related_name='order', blank=True)
@@ -36,6 +37,8 @@ class OrderModel(models.Model):
 class DailyFood(models.Model):
     food = models.ForeignKey('FoodMenu', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    date = models.DateField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.name

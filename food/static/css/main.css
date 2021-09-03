@@ -1,0 +1,72 @@
+h1{
+    color:rgb(87, 185, 22);
+}
+
+
+
+
+/* fillon login page */
+
+#login{
+    background-image: url("../foto/foto_webi/login.jfif");
+    position: fixed; 
+    
+    left: 0; 
+    color: rgb(226, 234, 235);
+    min-width: 100%;
+    min-height: 100%;
+}
+#formlogin{
+    position: relative;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 150px;
+    color: rgb(226, 234, 235);
+}
+
+#formlogin button{
+    color: rgb(226, 234, 235);
+    
+}
+
+.profile {
+    background-color: burlywood;
+    
+}
+
+
+
+#navbar{
+    background-color: rgb(120, 168, 170);
+    
+}
+#navbarText{
+    color: rgb(226, 234, 235);
+}
+#navbarText a{
+    color: rgb(226, 234, 235);
+}
+
+#footer{
+    background-color: rgb(120, 168, 170);
+    margin-top: 5px;
+    color: rgb(226, 234, 235);
+}
+.search{
+    background: url("../foto/foto_webi/search.jpg");
+    position: fixed; 
+    top: 50px; 
+    left: 0; 
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    
+}
+
+.search form{
+    color: rgb(226, 234, 235);
+}
+
+.search table{
+    color: rgb(226, 234, 235);
+}

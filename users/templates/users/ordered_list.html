@@ -1,6 +1,7 @@
 {% extends "food/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="search">
     <div class="content-section">
       <div class="media">
         
@@ -12,11 +13,13 @@
     {% if user.is_superuser %}
     <center>
     <form method="POST">
+        
         {% csrf_token %}
         
     from : <input type="date" name="fromdate"/>
     to: <input type="date" name="todate" />
-    <input type="submit" value="Search"/>
+    <input type="submit" value="Search" name="search"/>
+    <input type="submit" name="Export" value="Export"/>
     <hr>
     <table border="1"> 
         <tr>
@@ -30,7 +33,7 @@
 
                 <tr>
                     <td>{{ orderlist.employee }}</td>
-                    <td>{{ orderlist.items }}</td>
+                    <td>{% for i in orderlist.items.all %} {{ i }}, {% endfor%}</td>
                     <td>{{ orderlist.price }}$</td>
                     <td>{{ orderlist.date }}</td>
                     
@@ -38,11 +41,6 @@
             
         {% endfor %}
     </table>
-    </form>
-    <form name="Export" method="POST">
-        
-    <input type="button" value="Print"/>
-
     </form>
     </center>
     {% else %}
@@ -52,5 +50,5 @@
 
     {% endif %}
  
-   
+</div>
 {% endblock content %}

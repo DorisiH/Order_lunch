@@ -1,38 +1,43 @@
 {% extends "food/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="profile">
     <div class="content-section">
       <div class="media">
         
         <div class="media-body">
           <h4>User name:</h4>
-          <h2 class="account-heading">{{ user.username }}</h2>
-          
-          <p class="text-secondary">{{ user.email }}</p>
+          <h2 class="account-heading">{{ user.username.upper }}</h2>
         </div>
       </div>
     </div> 
-    <div class="pt-5">
-      {% for app in useri %}
-      <div class="row">
+    
+      <div class="pt-5">
+        {% for app in useri %}
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="d-flex flex-row">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">You </label>
+                    </div>
+                <div class="form-group form-check">
+                      <label class="form-check-label"> ordered<b>{% for y in app.items.all %} {{y}}, {% endfor %}</b></label>      
+            </div>
+                    <p class="font-weight-bold pl-5">with a total value of ${{ app.price }}</p>
+        </div>
+                <p> on date {{ app.created_on }}</p>
+                <form method = "POST" enctype="multipart/form-data" >
+                  {% csrf_token %}
+                  
+                  <input type="file" required name ="fatura" >
+                  <button type="submit">post the bill</button>
+                </form>
           
-          <div class="col-md-8 col-sm-12">
-              <div class="d-flex flex-row">
-                  <div class="form-group form-check">
-                      <label class="form-check-label">Employee "{{ app.employee }}"</label>
-                  </div>
-
-                  <div class="form-group form-check">
-                    <label class="form-check-label">ordered {{ app.items }}</label>
-                </div>
-
-                  <p class="font-weight-bold pl-5">with a total value of ${{ app.price }}</p>
-              </div>
-              <p> on date {{ app.created_on }}</p>
-          </div>
+        </div>
       </div>
-      <hr />
-  {% endfor %}
+        <hr />
+        {% endfor %}
+</div>
 
    
 {% endblock content %}

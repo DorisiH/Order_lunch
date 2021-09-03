@@ -1,16 +1,17 @@
 {% extends 'food/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+    <div id="login">
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group">
+            <fieldset class="form-group" id="formlogin">
                 <legend class="border-bottom mb-4">Log In</legend>
                 {{ form|crispy }}
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Login</button>
+                </div>
             </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
-            </div>
+            
         </form>
     </div>
 {% endblock content %}

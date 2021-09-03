@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +7,13 @@
     <title>Order food</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
-<body>
+<body class="body" >
     {% include 'food/nav.html'%}
     {% block content %}
-        <h1>You can order your lunch in this app</h1>
+    {% load static %}
+        <h1 class="ok">You can order your lunch in this app</h1>
         
         {% if user.is_authenticated %}
             <a class="nav-link" href="{% url 'order' %}">Order <span class="sr-only"></span></a>   

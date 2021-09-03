@@ -6,6 +6,7 @@
     <div class="col-md-12 ">
         <div class="col-md-12 col-sm-12 p-4">
             <form method="POST">
+                
                 {% csrf_token %}
     
 
@@ -34,7 +35,7 @@
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ menu.food.id }}">
                                     <label class="form-check-label">{{ menu.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">${{ menu.food.price }}</p>
